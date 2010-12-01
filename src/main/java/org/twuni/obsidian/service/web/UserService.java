@@ -52,8 +52,8 @@ public class UserService extends Service<User> implements org.twuni.obsidian.ser
 
 		Set<Membership> memberships = new HashSet<Membership>();
 
-		@SuppressWarnings( "unchecked" )
-		List<Map> campaigns = properties.getList( "campaigns", Map.class );
+		@SuppressWarnings( "rawtypes" )
+        List<Map> campaigns = properties.getList( "campaigns", Map.class );
 
 		for( Map<String, Object> campaign : campaigns ) {
 
