@@ -12,7 +12,7 @@ import org.twuni.obsidian.model.WikiPage;
 import org.twuni.obsidian.util.JSONBuilder;
 import org.twuni.obsidian.util.Properties;
 
-public class PageService extends Service<Page> implements org.twuni.obsidian.service.PageService {
+class PageService extends Service<Page> implements org.twuni.obsidian.service.PageService {
 
 	public PageService( ObsidianClient client ) {
 		super( client );

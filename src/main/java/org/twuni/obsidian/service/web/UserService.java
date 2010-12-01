@@ -12,7 +12,7 @@ import org.twuni.obsidian.model.User;
 import org.twuni.obsidian.util.JSONBuilder;
 import org.twuni.obsidian.util.Properties;
 
-public class UserService extends Service<User> implements org.twuni.obsidian.service.UserService {
+class UserService extends Service<User> implements org.twuni.obsidian.service.UserService {
 
 	public UserService( ObsidianClient client ) {
 		super( client );

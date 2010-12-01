@@ -12,8 +12,8 @@ public class WebServiceFactory {
 		return new CampaignService( client );
 	}
 
-	public static org.twuni.obsidian.service.CharacterService createCharacterService( ObsidianClient client ) {
-		return new CharacterService( client );
+	public static org.twuni.obsidian.service.CreatureService createCreatureService( ObsidianClient client ) {
+		return new CreatureService( client );
 	}
 
 	public static org.twuni.obsidian.service.UserService createUserService( ObsidianClient client ) {

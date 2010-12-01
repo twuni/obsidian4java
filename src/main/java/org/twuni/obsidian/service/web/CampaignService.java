@@ -12,7 +12,7 @@ import org.twuni.obsidian.model.User;
 import org.twuni.obsidian.util.JSONBuilder;
 import org.twuni.obsidian.util.Properties;
 
-public class CampaignService extends Service<Campaign> implements org.twuni.obsidian.service.CampaignService {
+class CampaignService extends Service<Campaign> implements org.twuni.obsidian.service.CampaignService {
 
 	protected CampaignService( ObsidianClient client ) {
 		super( client );
