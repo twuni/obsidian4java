@@ -1,19 +1,14 @@
 package org.twuni.obsidian.client;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 import org.twuni.authentication.oauth.client.OAuthClient;
 
-import net.oauth.OAuthException;
+public class ObsidianClient extends OAuthClient {
 
-public abstract class ObsidianClient extends OAuthClient {
-
-	public ObsidianClient( String consumerKey, String consumerSecret ) throws IOException, OAuthException, URISyntaxException {
+	public ObsidianClient( String consumerKey, String consumerSecret ) {
 		this( consumerKey, consumerSecret, "oob" );
 	}
 
-	public ObsidianClient( String consumerKey, String consumerSecret, String callbackUrl ) throws IOException, OAuthException, URISyntaxException {
+	public ObsidianClient( String consumerKey, String consumerSecret, String callbackUrl ) {
 		super( consumerKey, consumerSecret, callbackUrl );
 	}
 
