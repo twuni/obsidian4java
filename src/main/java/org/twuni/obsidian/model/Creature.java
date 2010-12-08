@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public class Creature {
 
 	private String id;
@@ -180,6 +182,31 @@ public class Creature {
 
 	public void setVisibleToGameMasterOnly( boolean visibleToGameMasterOnly ) {
 		this.visibleToGameMasterOnly = visibleToGameMasterOnly;
+	}
+	
+	@Override
+	public String toString() {
+		JSONBuilder json = new JSONBuilder();
+		json.beginObject();
+		json.value( "avatar_url", getAvatarUrl() );
+		json.value( "bio_html", getBiographyAsHtml() );
+		json.value( "bio", getBiographyAsText() );
+		json.value( "created_at", getDateCreated() );
+		json.value( "updated_at", getDateUpdated() );
+		json.value( "description_html", getDescriptionAsHtml() );
+		json.value( "description", getDescriptionAsText() );
+		json.value( "game_master_info_html", getGameMasterInfoAsHtml() );
+		json.value( "game_master_info", getGameMasterInfoAsText() );
+		json.value( "id", getId() );
+		json.value( "name", getName() );
+		json.value( "slug", getSlug() );
+		json.value( "tagline", getTagline() );
+		json.value( "url", getUrl() );
+		json.value( "author", getAuthor().toString() );
+		json.value( "campaign", getCampaign().toString() );
+		json.value( "tags", getTags() );
+		json.endObject();
+		return json.toString();
 	}
 
 }

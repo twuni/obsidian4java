@@ -19,12 +19,12 @@ public class JSONBuilder {
 		json.append( "}" );
 		return this;
 	}
-	
+
 	public JSONBuilder beginList() {
 		json.append( "[" );
 		return this;
 	}
-	
+
 	public JSONBuilder endList() {
 		removeTrailingComma();
 		json.append( "]" );
@@ -47,10 +47,20 @@ public class JSONBuilder {
 		json.append( "'" ).append( StringEscapeUtils.escapeJavaScript( key ) ).append( "':" );
 		return this;
 	}
-	
+
 	private JSONBuilder value( String value ) {
 		json.append( "'" ).append( StringEscapeUtils.escapeJavaScript( value ) ).append( "'" );
 		return next();
+	}
+
+	public JSONBuilder value( double value ) {
+		json.append( value );
+		return next();
+	}
+
+	public JSONBuilder value( String key, double value ) {
+		key( key );
+		return value( value );
 	}
 
 	public JSONBuilder value( String key, String value ) {

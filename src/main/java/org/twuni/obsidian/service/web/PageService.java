@@ -9,7 +9,6 @@ import org.twuni.obsidian.model.Campaign;
 import org.twuni.obsidian.model.Page;
 import org.twuni.obsidian.model.Post;
 import org.twuni.obsidian.model.WikiPage;
-import org.twuni.obsidian.util.JSONBuilder;
 import org.twuni.obsidian.util.Properties;
 
 class PageService extends Service<Page> implements org.twuni.obsidian.service.PageService {
@@ -98,26 +97,7 @@ class PageService extends Service<Page> implements org.twuni.obsidian.service.Pa
 			return "";
 		}
 
-		JSONBuilder json = new JSONBuilder();
-
-		json.beginObject();
-		json.key( "wiki_page" );
-		json.beginObject();
-		json.value( "name", page.getName() );
-		json.value( "body", page.getBodyAsText() );
-		json.value( "game_master_info", page.getGameMasterInfoAsText() );
-		json.value( "is_game_master_only", page.isGameMasterOnly() );
-		json.value( "tags", page.getTags() );
-		if( page instanceof Post ) {
-			Post post = (Post) page;
-			json.value( "post_title", post.getTitle() );
-			json.value( "post_tagline", post.getTagline() );
-			json.value( "post_time", post.getDate() );
-		}
-		json.endObject();
-		json.endObject();
-
-		return json.toString();
+		return page.toString();
 
 	}
 

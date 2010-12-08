@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public abstract class Page {
 
 	private String id;
@@ -126,6 +128,26 @@ public abstract class Page {
 
 	public void setUrl( String url ) {
 		this.url = url;
+	}
+	
+	@Override
+	public String toString() {
+
+		JSONBuilder json = new JSONBuilder();
+
+		json.beginObject();
+		json.key( "wiki_page" );
+		json.beginObject();
+		json.value( "name", getName() );
+		json.value( "body", getBodyAsText() );
+		json.value( "game_master_info", getGameMasterInfoAsText() );
+		json.value( "is_game_master_only", isGameMasterOnly() );
+		json.value( "tags", getTags() );
+		json.endObject();
+		json.endObject();
+
+		return json.toString();
+
 	}
 
 }

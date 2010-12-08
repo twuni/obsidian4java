@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Set;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public class User {
 	
 	private String id;
@@ -95,6 +97,27 @@ public class User {
 
 	public void setName( String name ) {
 		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+	
+		JSONBuilder json = new JSONBuilder();
+		
+		json.beginObject();
+		json.value( "avatar_url", getAvatarUrl() );
+		json.value( "created_at", getDateCreated() );
+		json.value( "last_seen", getDateLastSeen() );
+		json.value( "id", getId() );
+		json.value( "name", getName() );
+		json.value( "profile_url", getProfileUrl() );
+		json.value( "time_zone_offset", getTimeZoneOffset() );
+		json.value( "locale", getLocale().toString() );
+		json.value( "campaigns", getCampaigns() );
+		json.endObject();
+
+		return json.toString();
+
 	}
 
 }

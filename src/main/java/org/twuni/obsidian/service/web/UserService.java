@@ -9,7 +9,6 @@ import java.util.Set;
 import org.twuni.obsidian.client.ObsidianClient;
 import org.twuni.obsidian.model.Membership;
 import org.twuni.obsidian.model.User;
-import org.twuni.obsidian.util.JSONBuilder;
 import org.twuni.obsidian.util.Properties;
 
 class UserService extends Service<User> implements org.twuni.obsidian.service.UserService {
@@ -53,7 +52,7 @@ class UserService extends Service<User> implements org.twuni.obsidian.service.Us
 		Set<Membership> memberships = new HashSet<Membership>();
 
 		@SuppressWarnings( "rawtypes" )
-        List<Map> campaigns = properties.getList( "campaigns", Map.class );
+		List<Map> campaigns = properties.getList( "campaigns", Map.class );
 
 		for( Map<String, Object> campaign : campaigns ) {
 
@@ -78,9 +77,14 @@ class UserService extends Service<User> implements org.twuni.obsidian.service.Us
 	}
 
 	@Override
-    protected String adapt( User model ) {
-		JSONBuilder json = new JSONBuilder();
-		return json.toString();
-    }
+	protected String adapt( User user ) {
+
+		if( user == null ) {
+			return "";
+		}
+		
+		return user.toString();
+
+	}
 
 }

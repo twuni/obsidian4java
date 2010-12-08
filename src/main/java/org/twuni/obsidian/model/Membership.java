@@ -1,5 +1,7 @@
 package org.twuni.obsidian.model;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public class Membership {
 
 	private User user = new User();
@@ -28,6 +30,21 @@ public class Membership {
 
 	public void setUser( User user ) {
 		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+
+		JSONBuilder json = new JSONBuilder();
+
+		json.beginObject();
+		json.value( "user", getUser().toString() );
+		json.value( "role", getRole().toString() );
+		json.value( "campaign", getCampaign().toString() );
+		json.endObject();
+
+		return json.toString();
+
 	}
 
 }

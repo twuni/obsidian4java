@@ -1,8 +1,17 @@
 package org.twuni.obsidian.client;
 
+import org.twuni.authentication.oauth.ConsumerToken;
 import org.twuni.authentication.oauth.client.OAuthClient;
 
 public class ObsidianClient extends OAuthClient {
+	
+	public ObsidianClient( ConsumerToken consumerToken ) {
+		this( consumerToken, "oob" );
+	}
+
+	public ObsidianClient( ConsumerToken consumerToken, String callbackUrl ) {
+		this( consumerToken.getKey(), consumerToken.getSecret(), callbackUrl );
+	}
 
 	public ObsidianClient( String consumerKey, String consumerSecret ) {
 		this( consumerKey, consumerSecret, "oob" );

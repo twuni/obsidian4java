@@ -1,5 +1,7 @@
 package org.twuni.obsidian.model;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public class Location {
 
 	private double latitude;
@@ -19,6 +21,16 @@ public class Location {
 
 	public void setLongitude( double longitude ) {
 		this.longitude = longitude;
+	}
+
+	@Override
+	public String toString() {
+		JSONBuilder json = new JSONBuilder();
+		json.beginObject();
+		json.value( "latitude", getLatitude() );
+		json.value( "longitude", getLongitude() );
+		json.endObject();
+		return json.toString();
 	}
 
 }

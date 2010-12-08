@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.twuni.obsidian.util.JSONBuilder;
+
 public class Campaign {
 
 	private String id;
@@ -114,6 +116,29 @@ public class Campaign {
 
 	public void setVisibility( Visibility visibility ) {
 		this.visibility = visibility;
+	}
+	
+	@Override
+	public String toString() {
+
+		JSONBuilder json = new JSONBuilder();
+		
+		json.beginObject();
+		json.value( "banner_url", getBannerUrl() );
+		json.value( "created_at", getDateCreated() );
+		json.value( "updated_at", getDateUpdated() );
+		json.value( "id", getId() );
+		json.value( "name", getName() );
+		json.value( "slug", getSlug() );
+		json.value( "url", getUrl() );
+		json.value( "location", getLocation().toString() );
+		json.value( "members", getMembers() );
+		json.value( "play_status", getPlayStatus().toString() );
+		json.value( "visibility", getVisibility().toString() );
+		json.endObject();
+		
+		return json.toString();
+
 	}
 
 }
