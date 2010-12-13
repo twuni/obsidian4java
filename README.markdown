@@ -13,33 +13,6 @@ That's it! Now you're ready to start pretending you have a native Obsidian Porta
 Sample Code
 -----------
 
-**Reference TokenRepository Implementation:**
-This is a basic implementation that stores tokens in memory. New tokens are required every time the application is restarted.
-
-	public class SimpleTokenRepository implements TokenRepository {
-	
-		private final Map<String, RequestToken> requestTokens = new HashMap<String, RequestToken>();
-		private final Map<String, AccessToken> accessTokens = new HashMap<String, AccessToken>();
-	
-		public AccessToken getAccessToken( String key ) {
-			return accessTokens.get( key );
-		}
-	
-		public RequestToken getRequestToken( String key ) {
-			return requestTokens.get( key );
-		}
-	
-		public void setAccessToken( String key, AccessToken value ) {
-			accessTokens.put( key, value );
-		}
-	
-		public void setRequestToken( String key, RequestToken value ) {
-			requestTokens.put( key, value );
-		}
-	
-	}
-	
-**Accessing the User API:**
 This is a very crude, standalone servlet capable of accessing the User API.
 
     public class UserServlet extends HttpServlet {
